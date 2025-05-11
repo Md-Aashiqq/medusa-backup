@@ -1,14 +1,25 @@
+// src/api/note/route.ts
+
 import type { MedusaRequest, MedusaResponse } from "@medusajs/framework/http"
-import { createNoteWorkflow } from "../../../workflows/create-note"
 
-type NoteRequestBody = { content: string }
+// POST: Create a new note
+export const POST = async (req: MedusaRequest, res: MedusaResponse) => {
+  // You would typically resolve your NoteModuleService here and create a note
+  // Example:
+  // const noteModuleService = req.scope.resolve("noteModuleService")
+  // const note = await noteModuleService.createNotes({ content: req.body.content })
+  // res.json({ note })
 
-export const POST = async (
-  req: MedusaRequest<NoteRequestBody>,
-  res: MedusaResponse
-) => {
-  const { result } = await createNoteWorkflow(req.scope).run({
-    input: result.validatedBody,
-  })
-  return res.json(result)
+  res.json({ message: "[POST] Note created!" }) // Placeholder
+}
+
+// GET: Retrieve notes
+export const GET = async (req: MedusaRequest, res: MedusaResponse) => {
+  // You would typically resolve your NoteModuleService here and fetch notes
+  // Example:
+  // const noteModuleService = req.scope.resolve("noteModuleService")
+  // const notes = await noteModuleService.listNotes()
+  // res.json({ notes })
+
+  res.json({ message: "[GET] Notes fetched!" }) // Placeholder
 }
