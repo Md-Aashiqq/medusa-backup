@@ -1,13 +1,7 @@
-// src/modules/banner/index.ts
-import { Banner } from "./models/banner"
+import { Module } from "@medusajs/framework/utils"
 import BannerModuleService from "./service"
 
-export default {
+export const BANNER_MODULE = "banner"
+export default Module(BANNER_MODULE, {
   service: BannerModuleService,
-  models: {
-    Banner,
-  },
-  linkable: {
-    banner: Banner,
-  },
-}
+})
